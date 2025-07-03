@@ -3,14 +3,14 @@ import { StyleSheet } from "react-native";
 export const homeStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "#F1FBF0",
         alignItems: "center",
         paddingTop: 80,
-        paddingHorizontal: 20,
+        // paddingHorizontal: 20,
     },
     scrollContent: {
         flexGrow: 1,
-        justifyContent: "center",
+        // justifyContent: "center",
         alignItems: "center",
     },
     header: {
@@ -19,9 +19,10 @@ export const homeStyles = StyleSheet.create({
         fontFamily: 'Outfit-SemiBold'
     },
     timer: {
-        fontSize: 40,
-        fontWeight: "600",
+        fontSize: 60,
+        fontWeight: "500",
         marginBottom: 50,
+        color: "#4D4D4D",
         fontFamily: 'Outfit-Regular'
     },
     waveform: {
@@ -38,24 +39,17 @@ export const homeStyles = StyleSheet.create({
         backgroundColor: "#6dbd67",
         borderRadius: 4,
     },
-    recordButton: {
-        backgroundColor: "#6dbd67",
-        padding: 35,
-        borderRadius: 100,
-        marginBottom: 16,
-        elevation: 4,
-    },
     outestCircle: {
-        width: 150,
-        height: 150,
+        width: 200,
+        height: 200,
         borderRadius: 100,
         backgroundColor: "#e8fae6", // very light green
         justifyContent: "center",
         alignItems: "center",
     },
     outerCircle: {
-        width: 130,
-        height: 130,
+        width: 170,
+        height: 170,
         borderRadius: 100,
         backgroundColor: "#d0f5cc", // very light green
         justifyContent: "center",
@@ -63,18 +57,18 @@ export const homeStyles = StyleSheet.create({
     },
 
     innerCircle: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        backgroundColor: "#6dbd67", // darker green
+        width: 140,
+        height: 140,
+        borderRadius: 100,
+        backgroundColor: "#4CAF50", // vibrant green — active center
         justifyContent: "center",
         alignItems: "center",
     }
     ,
     hintText: {
         fontSize: 18,
-        color: "#888",
-        marginTop: 8,
-        fontFamily: 'Outfit-Regular'
+        color: "#4D4D4D",
+        marginTop: 20,
+        fontFamily: 'Outfit-Medium'
     },
 })

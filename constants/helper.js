@@ -32,3 +32,20 @@
 
 //   return true;
 // };
+
+
+
+
+{/* <View style={homeStyles.outestCircle}>
+          <View style={homeStyles.outerCircle}>
+            <View style={homeStyles.innerCircle}>
+              <TouchableOpacity>
+                {isRecording ? (
+                  <Ionicons name="stop" size={45} color="#fff" />
+                ) : (
+                  <Ionicons name="play" size={45} color="#fff" />
+                )}
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View> */}
