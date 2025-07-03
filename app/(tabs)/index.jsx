@@ -160,13 +160,6 @@ const RecordScreen = () => {
     <View style={homeStyles.container}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        // refreshControl={
-        //   <RefreshControl
-        //     // refreshing={refreshing}
-        //     // onRefresh={onRefresh}
-        //     tintColor={COLORS.primary}
-        //   />
-        // }
         contentContainerStyle={homeStyles.scrollContent}
       >
         <Text style={homeStyles.timer}>{formatTime(timer)}</Text>

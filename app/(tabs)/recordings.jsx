@@ -6,6 +6,7 @@ import {
   FlatList,
   LayoutAnimation,
   Platform,
+  RefreshControl,
   Text,
   TouchableOpacity,
   UIManager,
@@ -13,6 +14,7 @@ import {
 } from "react-native";
 
 import { recordingStyles } from "../../assets/styles/recording.styles";
+import EmptyRecordings from "../../components/EmptyRecordings";
 
 if (
   Platform.OS === "android" &&
@@ -53,7 +55,7 @@ const RecordingItem = ({ item, isExpanded, onToggle }) => {
             style={recordingStyles.slider}
             minimumValue={0}
             maximumValue={100}
-            value={65}
+            value={0}
             minimumTrackTintColor="#34C759"
             maximumTrackTintColor="#ccc"
             thumbTintColor="#34C759"
@@ -68,6 +70,8 @@ const RecordingItem = ({ item, isExpanded, onToggle }) => {
 const Recording = () => {
   const [recordings, setRecordings] = useState([]);
   const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const [refreshing, setRefreshing] = useState(false);
 
   const toggleExpand = (index) => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -95,6 +99,12 @@ const Recording = () => {
     }
   };
 
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await loadRecordings();
+    setRefreshing(false);
+  };
+
   useEffect(() => {
     loadRecordings();
   }, []);
@@ -105,25 +115,13 @@ const Recording = () => {
 
       <FlatList
         data={recordings}
-        // keyExtractor={(item) => item.name}
         keyExtractor={(item, index) => item.uri + index}
         contentContainerStyle={recordingStyles.list}
-        // renderItem={({ item }) => (
-        //   <View style={recordingStyles.itemContainer}>
-        //     <View style={recordingStyles.row}>
-        //       <View style={recordingStyles.iconWrapper}>
-        //         <Ionicons name="play" size={20} color="#fff" />
-        //       </View>
-        //       <View style={recordingStyles.details}>
-        //         <Text style={recordingStyles.title}>{item.name}</Text>
-        //         <Text style={recordingStyles.subtitle}>
-        //           {new Date(item.createdAt).toLocaleString()}
-        //         </Text>
-        //       </View>
-        //     </View>
-        //   </View>
-        // )}
-
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        ListEmptyComponent={<EmptyRecordings />}
         renderItem={({ item, index }) => (
           <RecordingItem
             item={item}
