@@ -1,4 +1,17 @@
-# Welcome to your Expo app 👋
+# Welcome to Echo👋
+
+<img
+  src="./assets/images/icon.png"
+  alt="App Logo"
+  style="
+    width: 80px;
+    height: 80px;
+    border: 1px solid #222222;
+    padding:10px;
+    background:black;
+    border-radius:16px;
+  "
+/>
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
